@@ -6,245 +6,355 @@
 <title>Casamento - Gustavo & Arina</title>
 
 <style>
-body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #fff; }
-.hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
-.hero h1 { font-size: 60px; margin-bottom: 10px; }
-.hero p { font-size: 22px; }
-.btn { margin-top: 20px; padding: 14px 30px; border: none; background: rgb(23, 71, 32); color: white; font-size: 16px; cursor: pointer; border-radius: 30px; }
-.section { padding: 70px 20px; text-align: center; }
-.section h2 { font-size: 36px; color: rgb(23, 71, 32); margin-bottom: 20px; }
-.section p { max-width: 600px; margin: auto; color: #555; }
-.container { max-width: 900px; margin: auto; }
-.tabela { display: grid; grid-template-columns: 1fr 1fr; background: #f9f9f9; border-radius: 12px; overflow: hidden; margin-top: 40px; }
-.coluna { padding: 20px; }
-.titulo { font-size: 22px; color: rgb(23, 71, 32); margin-bottom: 15px; border-bottom: 2px solid rgb(23, 71, 32); padding-bottom: 5px; }
-ul { list-style: none; padding: 0; }
-li { padding: 12px; margin-bottom: 10px; background: white; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-li:hover { background: #f0f0f0; }
-.transparente { opacity: 0.4; }
-.confirmados { margin-top: 30px; background: white; padding: 20px; border-radius: 12px; }
-.item-confirmado { display: flex; justify-content: space-between; margin-bottom: 8px; background: #f9f9f9; padding: 10px; border-radius: 8px; }
-.btn-excluir { background: rgb(23, 71, 32); border: none; color: white; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
-.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; }
-.modal-content { background: white; padding: 25px; border-radius: 12px; width: 300px; text-align: center; }
-.modal-content input { width: 100%; padding: 10px; margin-top: 10px; border-radius: 8px; border: 1px solid #ccc; }
-.modal-content button { margin-top: 10px; padding: 10px; border: none; border-radius: 8px; cursor: pointer; }
-.btn-confirmar { background: rgb(23, 71, 32); color: white; }
-.btn-cancelar { background: gray; color: white; }
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#fff;
+}
+
+/* HERO (primeira tela) */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:22px;
+}
+
+.btn{
+margin-top:20px;
+padding:14px 30px;
+border:none;
+background:rgb(23,71,32);
+color:white;
+font-size:16px;
+cursor:pointer;
+border-radius:30px;
+}
+
+/* SEÇÃO */
+.section{
+padding:70px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:36px;
+color:rgb(23,71,32);
+margin-bottom:20px;
+}
+
+.section p{
+max-width:600px;
+margin:auto;
+color:#555;
+}
+
+/* ===== BLOCO DAS IMAGENS REDONDAS ===== */
+
+.imagens-casamento{
+position:relative;
+width:600px;
+height:420px;
+margin:40px auto;
+}
+
+/* imagem grande */
+.img-casal{
+position:absolute;
+width:320px;
+height:320px;
+border-radius:50%;
+object-fit:cover;
+top:60px;
+left:230px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* imagem pequena cima */
+.img-topo{
+position:absolute;
+width:200px;
+height:200px;
+border-radius:50%;
+object-fit:cover;
+top:0;
+left:0;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* imagem pequena baixo */
+.img-baixo{
+position:absolute;
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+bottom:0;
+left:60px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* LISTA */
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.tabela{
+display:grid;
+grid-template-columns:1fr 1fr;
+background:#f9f9f9;
+border-radius:12px;
+overflow:hidden;
+margin-top:40px;
+}
+
+.coluna{
+padding:20px;
+}
+
+.titulo{
+font-size:22px;
+color:rgb(23,71,32);
+margin-bottom:15px;
+border-bottom:2px solid rgb(23,71,32);
+padding-bottom:5px;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+
+li{
+padding:12px;
+margin-bottom:10px;
+background:white;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+li:hover{
+background:#f0f0f0;
+}
+
+.transparente{
+opacity:0.4;
+}
+
+.confirmados{
+margin-top:30px;
+background:white;
+padding:20px;
+border-radius:12px;
+}
+
+.item-confirmado{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+background:#f9f9f9;
+padding:10px;
+border-radius:8px;
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:white;
+padding:25px;
+border-radius:12px;
+width:300px;
+text-align:center;
+}
+
+.modal-content input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.modal-content button{
+margin-top:10px;
+padding:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.btn-confirmar{
+background:rgb(23,71,32);
+color:white;
+}
+
+.btn-cancelar{
+background:gray;
+color:white;
+}
 
 /* MENSAGEM SUCESSO */
-.msg-sucesso {
-position: fixed;
-bottom: 30px;
-left: 50%;
-transform: translateX(-50%);
-background: rgb(23, 71, 32);
-color: white;
-padding: 15px 25px;
-border-radius: 12px;
-display: none;
-font-size: 16px;
+
+.msg-sucesso{
+position:fixed;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+background:rgb(23,71,32);
+color:white;
+padding:15px 25px;
+border-radius:12px;
+display:none;
+font-size:16px;
 }
 
-/* BOTÃO ADM */
-.admin-btn {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background: black;
-color: white;
-border: none;
-padding: 10px 15px;
-border-radius: 10px;
-cursor: pointer;
-}
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <div class="hero">
-    <div>
-        <h1>Gustavo & Arina</h1>
-        <p>Vamos nos casar e você faz parte disso</p>
-        <button class="btn" onclick="irParaLista()">Ver lista de presentes</button>
-    </div>
+<div>
+<h1>Gustavo & Arina</h1>
+<p>Vamos nos casar e você faz parte da nossa historia</p>
+<button class="btn" onclick="irParaLista()">Ver lista de presentes</button>
+</div>
 </div>
 
+<!-- NOSSO CASAMENTO -->
 <div class="section">
-    <h2>Nosso Casamento</h2>
-    <p>Estamos muito felizes em compartilhar esse momento especial com você.</p>
+<h2>Nosso Casamento</h2>
+<p>Estamos muito felizes em compartilhar esse momento especial com você.</p>
+
+<div class="imagens-casamento">
+
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" class="img-casal">
+
+<img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e" class="img-topo">
+
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552" class="img-baixo">
+
+</div>
 </div>
 
+<!-- LISTA -->
 <div class="section" id="lista">
-    <h2>Lista de Presentes</h2>
+<h2>Lista de Presentes</h2>
 
-    <div class="container">
-        <div class="tabela">
+<div class="container">
+<div class="tabela">
 
-            <div class="coluna">
-                <div class="titulo">Casas Bahia</div>
-                <ul id="listaPresentes">
-                    <li onclick="abrirModal(this)">Micro-ondas</li>
-                    <li onclick="abrirModal(this)">Geladeira</li>
-                    <li onclick="abrirModal(this)">Fogão</li>
-                    <li onclick="abrirModal(this)">Máquina de Lavar</li>
-                </ul>
-            </div>
-
-            <div class="coluna">
-                <div class="titulo">C/S</div>
-                <ul>
-                    <li onclick="abrirModal(this)">Pratos</li>
-                    <li onclick="abrirModal(this)">Pano de prato</li>
-                    <li onclick="abrirModal(this)">Toalha</li>
-                    <li onclick="abrirModal(this)">Jogo de Cama</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="confirmados">
-            <h2>Presentes escolhidos</h2>
-            <div id="listaConfirmados"></div>
-        </div>
-    </div>
+<div class="coluna">
+<div class="titulo">Casas Bahia</div>
+<ul>
+<li onclick="abrirModal(this)">Micro-ondas</li>
+<li onclick="abrirModal(this)">Geladeira</li>
+<li onclick="abrirModal(this)">Fogão</li>
+<li onclick="abrirModal(this)">Máquina de Lavar</li>
+</ul>
 </div>
 
+<div class="coluna">
+<div class="titulo">C/S</div>
+<ul>
+<li onclick="abrirModal(this)">Pratos</li>
+<li onclick="abrirModal(this)">Pano de prato</li>
+<li onclick="abrirModal(this)">Toalha</li>
+<li onclick="abrirModal(this)">Jogo de Cama</li>
+</ul>
+</div>
+
+</div>
+
+<div class="confirmados">
+<h2>Quem já escolheu</h2>
+<div id="listaConfirmados"></div>
+</div>
+
+</div>
+</div>
+
+<!-- MODAL -->
 <div class="modal" id="modal">
-    <div class="modal-content">
-        <h3 id="nomePresente"></h3>
-        <input type="text" id="nomePessoa" placeholder="Digite seu nome">
-        <br>
-        <button class="btn-confirmar" onclick="confirmarCompra()">Confirmar</button>
-        <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
-    </div>
+<div class="modal-content">
+<h3 id="nomePresente"></h3>
+<input type="text" id="nomePessoa" placeholder="Digite seu nome">
+<br>
+<button class="btn-confirmar" onclick="confirmarCompra()">Confirmar</button>
+<button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+</div>
 </div>
 
 <div class="msg-sucesso" id="msgSucesso"></div>
-<button class="admin-btn" onclick="loginAdmin()">ADM</button>
 
-<script type="module">
+<script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBcfwgYJNSDDbHoY99_ve5xGvJ-pvn3T14",
-  authDomain: "lista-casamento-34385.firebaseapp.com",
-  projectId: "lista-casamento-34385",
-  storageBucket: "lista-casamento-34385.firebasestorage.app",
-  messagingSenderId: "576718411440",
-  appId: "1:576718411440:web:c4fc97df73606cb8c80d75"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const lista = collection(db, "presentes");
-
-window.irParaLista = function() {
-    document.getElementById("lista").scrollIntoView({behavior: "smooth"});
+function irParaLista(){
+document.getElementById("lista").scrollIntoView({behavior:"smooth"});
 }
 
-let presenteSelecionado = null;
+let presenteSelecionado=null;
 
-window.abrirModal = function(item) {
-    presenteSelecionado = item;
-    document.getElementById("nomePresente").textContent = item.textContent;
-    document.getElementById("modal").style.display = "flex";
+function abrirModal(item){
+presenteSelecionado=item;
+document.getElementById("nomePresente").textContent=item.textContent;
+document.getElementById("modal").style.display="flex";
 }
 
-window.fecharModal = function() {
-    document.getElementById("modal").style.display = "none";
+function fecharModal(){
+document.getElementById("modal").style.display="none";
 }
 
-window.confirmarCompra = async function() {
+function confirmarCompra(){
 
-    const nome = document.getElementById("nomePessoa").value;
+const nome=document.getElementById("nomePessoa").value;
 
-    if(nome === "") return alert("Digite seu nome");
+if(nome==="") return alert("Digite seu nome");
 
-    await addDoc(lista, {
-        presente: presenteSelecionado.textContent,
-        pessoa: nome
-    });
+presenteSelecionado.classList.add("transparente");
 
-    presenteSelecionado.classList.add("transparente");
+fecharModal();
 
-    fecharModal();
+const msg=document.getElementById("msgSucesso");
+msg.innerHTML=`Obrigado ${nome} 💚 Seu presente foi registrado com sucesso`;
+msg.style.display="block";
 
-    const msg = document.getElementById("msgSucesso");
-    msg.innerHTML = `Obrigado ${nome} 💚 Seu presente foi registrado com sucesso`;
-    msg.style.display = "block";
-
-    setTimeout(()=> msg.style.display = "none", 4000);
-}
-
-function carregarLista() {
-
-    const div = document.getElementById("listaConfirmados");
-
-    onSnapshot(lista, (snapshot) => {
-
-        div.innerHTML = "";
-
-        snapshot.forEach(docItem => {
-
-            const dados = docItem.data();
-
-            const novo = document.createElement("div");
-            novo.classList.add("item-confirmado");
-
-            if(isAdmin === true) {
-
-                novo.innerHTML = `
-                    <span>${dados.presente} — ${dados.pessoa}</span>
-                    <button class="btn-excluir" onclick="excluir('${docItem.id}')">Excluir</button>
-                `;
-
-            } else {
-
-                novo.innerHTML = `
-                    <span>${dados.presente} — ${dados.pessoa}</span>
-                `;
-            }
-
-            div.appendChild(novo);
-        });
-
-    });
+setTimeout(()=>msg.style.display="none",4000);
 
 }
-
-carregarLista();
-
-window.excluir = async function(id) {
-    await deleteDoc(doc(db, "presentes", id));
-}
-
-let isAdmin = false;
-
-window.loginAdmin = function() {
-
-    const senha = prompt("Digite a senha de administrador");
-
-    if(senha === "1234") {
-
-        isAdmin = true;
-
-        carregarLista(); // isso faz aparecer o botão excluir
-
-        alert("Modo administrador ativado");
-
-
-    } else {
-        alert("Senha errada");
-    }
-}
-
 
 </script>
 
 </body>
 </html>
-
-
