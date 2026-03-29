@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casamento - Gustavo & Arina</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+}
+
+/* HERO (igual ao site que você mandou) */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 22px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 14px 30px;
+    border: none;
+    background: rgb(23, 71, 32);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 36px;
+    color: rgb(23, 71, 32);
+    margin-bottom: 20px;
+}
+
+.section p {
+    max-width: 600px;
+    margin: auto;
+    color: #555;
+}
+
+/* LISTA DE PRESENTES */
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.tabela {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #f9f9f9;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.coluna {
+    padding: 20px;
+}
+
+.titulo {
+    font-size: 22px;
+    color: rgb(23, 71, 32);
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgb(23, 71, 32);
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+li:hover {
+    background: #f0f0f0;
+}
+
+.escolhido {
+    background: rgb(23, 71, 32);
+    color: white;
+    font-weight: bold;
+}
+
+.confirmados {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.item-confirmado {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.btn-excluir {
+    background: rgb(23, 71, 32);
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-confirmar {
+    background: rgb(23, 71, 32);
+    color: white;
+}
+
+.btn-cancelar {
+    background: gray;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HERO IGUAL AO SITE -->
+<div class="hero">
+    <div>
+        <h1>Gustavo & Arina 💍</h1>
+        <p>Vamos nos casar e você faz parte disso</p>
+        <button class="btn" onclick="irParaLista()">Ver lista de presentes</button>
+    </div>
+</div>
+
+<!-- SOBRE O CASAMENTO -->
+<div class="section">
+    <h2>Nosso Casamento</h2>
+    <p>
+        Estamos muito felizes em compartilhar esse momento especial com você. 
+        Criamos esta página para facilitar a escolha dos presentes.
+    </p>
+</div>
+
+<!-- LISTA DE PRESENTES -->
+<div class="section" id="lista">
+    <h2>Lista de Presentes</h2>
+
+    <div class="container">
+
+        <div class="tabela">
+
+            <div class="coluna">
+                <div class="titulo">Casas Bahia</div>
+                <ul>
+                    <li onclick="abrirModal(this)">Micro-ondas</li>
+                    <li onclick="abrirModal(this)">Geladeira</li>
+                    <li onclick="abrirModal(this)">Fogão</li>
+                    <li onclick="abrirModal(this)">Máquina de Lavar</li>
+                </ul>
+            </div>
+
+            <div class="coluna">
+                <div class="titulo">C/S</div>
+                <ul>
+                    <li onclick="abrirModal(this)">Pratos</li>
+                    <li onclick="abrirModal(this)">Pano de prato</li>
+                    <li onclick="abrirModal(this)">Toalha</li>
+                    <li onclick="abrirModal(this)">Jogo de Cama</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="confirmados">
+            <h2>Presentes escolhidos</h2>
+            <div id="listaConfirmados"></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3 id="nomePresente"></h3>
+        <input type="text" id="nomePessoa" placeholder="Digite seu nome">
+        <br>
+        <button class="btn-confirmar" onclick="confirmarCompra()">Comprar</button>
+        <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+    </div>
+</div>
+
+<script>
+
+function irParaLista() {
+    document.getElementById("lista").scrollIntoView({behavior: "smooth"});
+}
+
+let presenteSelecionado = null;
+
+function abrirModal(item) {
+
+    if(item.classList.contains("escolhido")) return;
+
+    presenteSelecionado = item;
+
+    document.getElementById("nomePresente").textContent = item.textContent;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function fecharModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function confirmarCompra() {
+
+    const nome = document.getElementById("nomePessoa").value;
+
+    if(nome === "") {
+        alert("Digite seu nome primeiro");
+        return;
+    }
+
+    presenteSelecionado.classList.add("escolhido");
+
+    const div = document.createElement("div");
+    div.classList.add("item-confirmado");
+
+    div.innerHTML = `
+        <span>${presenteSelecionado.textContent} - Escolhido por: ${nome}</span>
+        <button class="btn-excluir" onclick="excluirPresente(this)">Excluir</button>
+    `;
+
+    document.getElementById("listaConfirmados").appendChild(div);
+
+    fecharModal();
+}
+
+function excluirPresente(botao) {
+
+    const confirmar = confirm("Deseja excluir o presente da sua lista?");
+
+    if(!confirmar) return;
+
+    const itemConfirmado = botao.parentElement;
+    const texto = itemConfirmado.querySelector("span").textContent;
+
+    const nomePresente = texto.split(" - ")[0];
+
+    const itens = document.querySelectorAll("li");
+
+    itens.forEach(item => {
+        if(item.textContent === nomePresente) {
+            item.classList.remove("escolhido");
+        }
+    });
+
+    itemConfirmado.remove();
+}
+
+</script>
+
+</body>
+</html>
