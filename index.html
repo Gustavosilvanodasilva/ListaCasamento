@@ -6,190 +6,35 @@
 <title>Casamento - Gustavo & Arina</title>
 
 <style>
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fff;
-}
-
-/* HERO (igual ao site que você mandou) */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 22px;
-}
-
-.btn {
-    margin-top: 20px;
-    padding: 14px 30px;
-    border: none;
-    background: rgb(23, 71, 32);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 30px;
-}
-
-.section {
-    padding: 70px 20px;
-    text-align: center;
-}
-
-.section h2 {
-    font-size: 36px;
-    color: rgb(23, 71, 32);
-    margin-bottom: 20px;
-}
-
-.section p {
-    max-width: 600px;
-    margin: auto;
-    color: #555;
-}
-
-/* LISTA DE PRESENTES */
-.container {
-    max-width: 900px;
-    margin: auto;
-}
-
-.tabela {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: #f9f9f9;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 40px;
-}
-
-.coluna {
-    padding: 20px;
-}
-
-.titulo {
-    font-size: 22px;
-    color: rgb(23, 71, 32);
-    margin-bottom: 15px;
-    border-bottom: 2px solid rgb(23, 71, 32);
-    padding-bottom: 5px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    padding: 12px;
-    margin-bottom: 10px;
-    background: white;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-li:hover {
-    background: #f0f0f0;
-}
-
-.escolhido {
-    background: rgb(23, 71, 32);
-    color: white;
-    font-weight: bold;
-}
-
-.confirmados {
-    margin-top: 30px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-}
-
-.item-confirmado {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.btn-excluir {
-    background: rgb(23, 71, 32);
-    border: none;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* MODAL */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    width: 300px;
-    text-align: center;
-}
-
-.modal-content input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.modal-content button {
-    margin-top: 10px;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.btn-confirmar {
-    background: rgb(23, 71, 32);
-    color: white;
-}
-
-.btn-cancelar {
-    background: gray;
-    color: white;
-}
-
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #fff; }
+.hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+.hero h1 { font-size: 60px; margin-bottom: 10px; }
+.hero p { font-size: 22px; }
+.btn { margin-top: 20px; padding: 14px 30px; border: none; background: rgb(23, 71, 32); color: white; font-size: 16px; cursor: pointer; border-radius: 30px; }
+.section { padding: 70px 20px; text-align: center; }
+.section h2 { font-size: 36px; color: rgb(23, 71, 32); margin-bottom: 20px; }
+.section p { max-width: 600px; margin: auto; color: #555; }
+.container { max-width: 900px; margin: auto; }
+.tabela { display: grid; grid-template-columns: 1fr 1fr; background: #f9f9f9; border-radius: 12px; overflow: hidden; margin-top: 40px; }
+.coluna { padding: 20px; }
+.titulo { font-size: 22px; color: rgb(23, 71, 32); margin-bottom: 15px; border-bottom: 2px solid rgb(23, 71, 32); padding-bottom: 5px; }
+ul { list-style: none; padding: 0; }
+li { padding: 12px; margin-bottom: 10px; background: white; border-radius: 8px; cursor: pointer; }
+li:hover { background: #f0f0f0; }
+.escolhido { background: rgb(23, 71, 32); color: white; font-weight: bold; }
+.confirmados { margin-top: 30px; background: white; padding: 20px; border-radius: 12px; }
+.item-confirmado { display: flex; justify-content: space-between; margin-bottom: 8px; background: #f9f9f9; padding: 10px; border-radius: 8px; }
+.btn-excluir { background: rgb(23, 71, 32); border: none; color: white; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 25px; border-radius: 12px; width: 300px; text-align: center; }
+.modal-content input { width: 100%; padding: 10px; margin-top: 10px; border-radius: 8px; border: 1px solid #ccc; }
+.modal-content button { margin-top: 10px; padding: 10px; border: none; border-radius: 8px; cursor: pointer; }
+.btn-confirmar { background: rgb(23, 71, 32); color: white; }
+.btn-cancelar { background: gray; color: white; }
 </style>
 </head>
 <body>
 
-<!-- HERO IGUAL AO SITE -->
 <div class="hero">
     <div>
         <h1>Gustavo & Arina 💍</h1>
@@ -198,21 +43,15 @@ li:hover {
     </div>
 </div>
 
-<!-- SOBRE O CASAMENTO -->
 <div class="section">
     <h2>Nosso Casamento</h2>
-    <p>
-        Estamos muito felizes em compartilhar esse momento especial com você. 
-        Criamos esta página para facilitar a escolha dos presentes.
-    </p>
+    <p>Estamos muito felizes em compartilhar esse momento especial com você.</p>
 </div>
 
-<!-- LISTA DE PRESENTES -->
 <div class="section" id="lista">
     <h2>Lista de Presentes</h2>
 
     <div class="container">
-
         <div class="tabela">
 
             <div class="coluna">
@@ -241,11 +80,9 @@ li:hover {
             <h2>Presentes escolhidos</h2>
             <div id="listaConfirmados"></div>
         </div>
-
     </div>
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
     <div class="modal-content">
         <h3 id="nomePresente"></h3>
@@ -256,29 +93,41 @@ li:hover {
     </div>
 </div>
 
-<script>
+<script type="module">
 
-function irParaLista() {
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBcfwgYJNSDDbHoY99_ve5xGvJ-pvn3T14",
+  authDomain: "lista-casamento-34385.firebaseapp.com",
+  projectId: "lista-casamento-34385",
+  storageBucket: "lista-casamento-34385.firebasestorage.app",
+  messagingSenderId: "576718411440",
+  appId: "1:576718411440:web:c4fc97df73606cb8c80d75"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const lista = collection(db, "presentes");
+
+window.irParaLista = function() {
     document.getElementById("lista").scrollIntoView({behavior: "smooth"});
 }
 
 let presenteSelecionado = null;
 
-function abrirModal(item) {
-
-    if(item.classList.contains("escolhido")) return;
-
+window.abrirModal = function(item) {
     presenteSelecionado = item;
-
     document.getElementById("nomePresente").textContent = item.textContent;
     document.getElementById("modal").style.display = "flex";
 }
 
-function fecharModal() {
+window.fecharModal = function() {
     document.getElementById("modal").style.display = "none";
 }
 
-function confirmarCompra() {
+window.confirmarCompra = async function() {
 
     const nome = document.getElementById("nomePessoa").value;
 
@@ -287,41 +136,37 @@ function confirmarCompra() {
         return;
     }
 
-    presenteSelecionado.classList.add("escolhido");
-
-    const div = document.createElement("div");
-    div.classList.add("item-confirmado");
-
-    div.innerHTML = `
-        <span>${presenteSelecionado.textContent} - Escolhido por: ${nome}</span>
-        <button class="btn-excluir" onclick="excluirPresente(this)">Excluir</button>
-    `;
-
-    document.getElementById("listaConfirmados").appendChild(div);
+    await addDoc(lista, {
+        presente: presenteSelecionado.textContent,
+        pessoa: nome
+    });
 
     fecharModal();
 }
 
-function excluirPresente(botao) {
+onSnapshot(lista, (snapshot) => {
 
-    const confirmar = confirm("Deseja excluir o presente da sua lista?");
+    const div = document.getElementById("listaConfirmados");
+    div.innerHTML = "";
 
-    if(!confirmar) return;
+    snapshot.forEach(docItem => {
 
-    const itemConfirmado = botao.parentElement;
-    const texto = itemConfirmado.querySelector("span").textContent;
+        const dados = docItem.data();
 
-    const nomePresente = texto.split(" - ")[0];
+        const novo = document.createElement("div");
+        novo.classList.add("item-confirmado");
 
-    const itens = document.querySelectorAll("li");
+        novo.innerHTML = `
+            <span>${dados.presente} - Escolhido por: ${dados.pessoa}</span>
+            <button class="btn-excluir" onclick="excluir('${docItem.id}')">Excluir</button>
+        `;
 
-    itens.forEach(item => {
-        if(item.textContent === nomePresente) {
-            item.classList.remove("escolhido");
-        }
+        div.appendChild(novo);
     });
+});
 
-    itemConfirmado.remove();
+window.excluir = async function(id) {
+    await deleteDoc(doc(db, "presentes", id));
 }
 
 </script>
