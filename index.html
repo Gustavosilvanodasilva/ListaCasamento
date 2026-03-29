@@ -19,9 +19,9 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #fff; }
 .coluna { padding: 20px; }
 .titulo { font-size: 22px; color: rgb(23, 71, 32); margin-bottom: 15px; border-bottom: 2px solid rgb(23, 71, 32); padding-bottom: 5px; }
 ul { list-style: none; padding: 0; }
-li { padding: 12px; margin-bottom: 10px; background: white; border-radius: 8px; cursor: pointer; }
+li { padding: 12px; margin-bottom: 10px; background: white; border-radius: 8px; cursor: pointer; transition: 0.3s; }
 li:hover { background: #f0f0f0; }
-.escolhido { background: rgb(23, 71, 32); color: white; font-weight: bold; }
+.transparente { opacity: 0.4; }
 .confirmados { margin-top: 30px; background: white; padding: 20px; border-radius: 12px; }
 .item-confirmado { display: flex; justify-content: space-between; margin-bottom: 8px; background: #f9f9f9; padding: 10px; border-radius: 8px; }
 .btn-excluir { background: rgb(23, 71, 32); border: none; color: white; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
@@ -31,13 +31,40 @@ li:hover { background: #f0f0f0; }
 .modal-content button { margin-top: 10px; padding: 10px; border: none; border-radius: 8px; cursor: pointer; }
 .btn-confirmar { background: rgb(23, 71, 32); color: white; }
 .btn-cancelar { background: gray; color: white; }
+
+/* MENSAGEM SUCESSO */
+.msg-sucesso {
+position: fixed;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+background: rgb(23, 71, 32);
+color: white;
+padding: 15px 25px;
+border-radius: 12px;
+display: none;
+font-size: 16px;
+}
+
+/* BOTÃO ADM */
+.admin-btn {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: black;
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 10px;
+cursor: pointer;
+}
 </style>
 </head>
 <body>
 
 <div class="hero">
     <div>
-        <h1>Gustavo & Arina 💍</h1>
+        <h1>Gustavo & Arina</h1>
         <p>Vamos nos casar e você faz parte disso</p>
         <button class="btn" onclick="irParaLista()">Ver lista de presentes</button>
     </div>
@@ -56,7 +83,7 @@ li:hover { background: #f0f0f0; }
 
             <div class="coluna">
                 <div class="titulo">Casas Bahia</div>
-                <ul>
+                <ul id="listaPresentes">
                     <li onclick="abrirModal(this)">Micro-ondas</li>
                     <li onclick="abrirModal(this)">Geladeira</li>
                     <li onclick="abrirModal(this)">Fogão</li>
@@ -88,10 +115,13 @@ li:hover { background: #f0f0f0; }
         <h3 id="nomePresente"></h3>
         <input type="text" id="nomePessoa" placeholder="Digite seu nome">
         <br>
-        <button class="btn-confirmar" onclick="confirmarCompra()">Comprar</button>
+        <button class="btn-confirmar" onclick="confirmarCompra()">Confirmar</button>
         <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
     </div>
 </div>
+
+<div class="msg-sucesso" id="msgSucesso"></div>
+<button class="admin-btn" onclick="loginAdmin()">ADM</button>
 
 <script type="module">
 
@@ -131,45 +161,90 @@ window.confirmarCompra = async function() {
 
     const nome = document.getElementById("nomePessoa").value;
 
-    if(nome === "") {
-        alert("Digite seu nome primeiro");
-        return;
-    }
+    if(nome === "") return alert("Digite seu nome");
 
     await addDoc(lista, {
         presente: presenteSelecionado.textContent,
         pessoa: nome
     });
 
+    presenteSelecionado.classList.add("transparente");
+
     fecharModal();
+
+    const msg = document.getElementById("msgSucesso");
+    msg.innerHTML = `Obrigado ${nome} 💚 Seu presente foi registrado com sucesso`;
+    msg.style.display = "block";
+
+    setTimeout(()=> msg.style.display = "none", 4000);
 }
 
-onSnapshot(lista, (snapshot) => {
+function carregarLista() {
 
     const div = document.getElementById("listaConfirmados");
-    div.innerHTML = "";
 
-    snapshot.forEach(docItem => {
+    onSnapshot(lista, (snapshot) => {
 
-        const dados = docItem.data();
+        div.innerHTML = "";
 
-        const novo = document.createElement("div");
-        novo.classList.add("item-confirmado");
+        snapshot.forEach(docItem => {
 
-        novo.innerHTML = `
-            <span>${dados.presente} - Escolhido por: ${dados.pessoa}</span>
-            <button class="btn-excluir" onclick="excluir('${docItem.id}')">Excluir</button>
-        `;
+            const dados = docItem.data();
 
-        div.appendChild(novo);
+            const novo = document.createElement("div");
+            novo.classList.add("item-confirmado");
+
+            if(isAdmin === true) {
+
+                novo.innerHTML = `
+                    <span>${dados.presente} — ${dados.pessoa}</span>
+                    <button class="btn-excluir" onclick="excluir('${docItem.id}')">Excluir</button>
+                `;
+
+            } else {
+
+                novo.innerHTML = `
+                    <span>${dados.presente} — ${dados.pessoa}</span>
+                `;
+            }
+
+            div.appendChild(novo);
+        });
+
     });
-});
+
+}
+
+carregarLista();
 
 window.excluir = async function(id) {
     await deleteDoc(doc(db, "presentes", id));
 }
 
+let isAdmin = false;
+
+window.loginAdmin = function() {
+
+    const senha = prompt("Digite a senha de administrador");
+
+    if(senha === "1234") {
+
+        isAdmin = true;
+
+        carregarLista(); // isso faz aparecer o botão excluir
+
+        alert("Modo administrador ativado");
+
+
+    } else {
+        alert("Senha errada");
+    }
+}
+
+
 </script>
 
 </body>
 </html>
+
+
